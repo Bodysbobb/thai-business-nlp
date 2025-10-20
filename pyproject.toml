@@ -1,0 +1,71 @@
+[build-system]
+requires = ["setuptools>=68", "wheel"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "thai-business-nlp"
+version = "0.1.0"
+description = "Thai-English NLP toolkit for extracting business keywords and sentiment from PDF reports."
+readme = "README.md"
+requires-python = ">=3.9"
+license = { text = "MIT" }
+authors = [
+  { name = "Pattawee Puangchit", email = "ppuangch@purdue.edu" }
+]
+keywords = ["NLP", "Thai", "sentiment", "business", "PDF", "text-mining"]
+classifiers = [
+  "Programming Language :: Python :: 3",
+  "License :: OSI Approved :: MIT License",
+  "Operating System :: OS Independent",
+  "Topic :: Text Processing :: Linguistic",
+  "Topic :: Scientific/Engineering :: Artificial Intelligence"
+]
+
+# ----------------------------------------------------------
+# Core dependencies
+# ----------------------------------------------------------
+dependencies = [
+  "pandas",
+  "numpy",
+  "pythainlp",
+  "tqdm",
+  "pillow",
+  "pymupdf",          # (fitz)
+  "opencv-python",
+  "requests",
+  "openpyxl"
+]
+
+# ----------------------------------------------------------
+# Optional extras
+# ----------------------------------------------------------
+[project.optional-dependencies]
+ocr = ["pytesseract"]
+ai = ["requests"]
+dev = ["pytest", "black", "ruff"]
+
+# ----------------------------------------------------------
+# Where your source code lives
+# ----------------------------------------------------------
+[tool.setuptools.packages.find]
+where = ["src"]
+
+# ----------------------------------------------------------
+# Include data files inside the package
+# ----------------------------------------------------------
+[tool.setuptools.package-data]
+"thai_business_nlp.data" = ["*.json", "*.xlsx"]
+
+# ----------------------------------------------------------
+# Entry points for command-line usage (optional)
+# ----------------------------------------------------------
+[project.scripts]
+thai-nlp-keywords = "thai_business_nlp.keyword_extract:main"
+thai-nlp-sentiment = "thai_business_nlp.sentiment_analysis:main"
+
+# ----------------------------------------------------------
+# URLs for your GitHub repo
+# ----------------------------------------------------------
+[project.urls]
+Homepage = "https://github.com/Bodysbobb/thai-business-nlp"
+Issues = "https://github.com/Bodysbobb/thai-business-nlp/issues"

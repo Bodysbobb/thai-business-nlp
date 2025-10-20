@@ -1,0 +1,96 @@
+{
+  "ลด_positive": {
+    "sentiment": "Positive",
+    "patterns": [
+      "ลด.*?ความเสี่ยง",
+      "ลด.*?อุบัติเหตุ",
+      "ลด.*?มลพิษ",
+      "ลด.*?ต้นทุน",
+      "ลด.*?การใช้.*?พลังงาน",
+      "ลด.*?การปล่อย",
+      "ลด.*?ปริมาณ.*?ของเสีย",
+      "ลด.*?การสูญเสีย",
+      "ลด.*?ผลกระทบ",
+      "ลด.*?การบริโภค"
+    ]
+  },
+  "ลด_negative": {
+    "sentiment": "Negative",
+    "patterns": [
+      "ลด.*?ประสิทธิภาพ",
+      "ลด.*?กำไร",
+      "ลด.*?รายได้",
+      "ลด.*?ยอดขาย",
+      "ลด.*?คุณภาพ",
+      "ลด.*?ผลิตภาพ",
+      "ลด.*?ศักยภาพ"
+    ]
+  },
+  "เพิ่ม_positive": {
+    "sentiment": "Positive",
+    "patterns": [
+      "เพิ่ม.*?ประสิทธิภาพ",
+      "เพิ่ม.*?คุณภาพ",
+      "เพิ่ม.*?ผลิตภาพ",
+      "เพิ่ม.*?ศักยภาพ",
+      "เพิ่ม.*?รายได้",
+      "เพิ่ม.*?กำไร"
+    ]
+  },
+  "เพิ่ม_negative": {
+    "sentiment": "Negative",
+    "patterns": [
+      "เพิ่ม.*?การปล่อยคาร์บอน",
+      "เพิ่ม.*?มลพิษ",
+      "เพิ่ม.*?ความเสี่ยง",
+      "เพิ่ม.*?ต้นทุน",
+      "เพิ่ม.*?การใช้.*?พลังงาน"
+    ]
+  },
+  "reduce_positive": {
+    "sentiment": "Positive",
+    "patterns": [
+      "reduce.*?risk",
+      "reduce.*?cost",
+      "reduce.*?waste",
+      "reduce.*?emission",
+      "reduce.*?consumption",
+      "decrease.*?risk",
+      "lower.*?cost",
+      "minimize.*?risk",
+      "cut.*?cost",
+      "mitigate.*?risk"
+    ]
+  },
+  "reduce_negative": {
+    "sentiment": "Negative",
+    "patterns": [
+      "reduce.*?profit",
+      "reduce.*?revenue",
+      "reduce.*?sales",
+      "decrease.*?performance",
+      "fall.*?in.*?quality",
+      "decrease.*?productivity"
+    ]
+  },
+  "increase_positive": {
+    "sentiment": "Positive",
+    "patterns": [
+      "increase.*?efficiency",
+      "increase.*?productivity",
+      "increase.*?quality",
+      "increase.*?revenue",
+      "increase.*?profit",
+      "boost.*?performance"
+    ]
+  },
+  "increase_negative": {
+    "sentiment": "Negative",
+    "patterns": [
+      "increase.*?carbon.*?emission",
+      "increase.*?pollution",
+      "increase.*?risk",
+      "increase.*?cost"
+    ]
+  }
+}

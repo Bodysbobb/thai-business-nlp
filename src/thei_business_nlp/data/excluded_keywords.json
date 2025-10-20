@@ -1,0 +1,12 @@
+{
+  "thai": [
+    "บริษัท", "คณะกรรมการ", "กรรมการ", "ประธาน", "ผู้บริหาร", "ผู้จัดการ",
+    "ผู้อำนวยการ", "รองประธาน", "เลขานุการ", "ผู้ช่วย", "หัวหน้า", "ผู้ดูแล",
+    "พนักงาน", "เจ้าหน้าที่", "ตัวแทน", "ผู้แทน", "กรรมการผู้จัดการ"
+  ],
+  "english": [
+    "company", "board", "director", "chairman", "executive", "manager",
+    "president", "vice", "secretary", "assistant", "head", "supervisor",
+    "employee", "staff", "officer", "representative", "ceo", "cfo", "coo"
+  ]
+}

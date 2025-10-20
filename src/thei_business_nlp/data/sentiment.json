@@ -1,0 +1,35 @@
+{
+  "positive": {
+    "thai": [
+      "ดี", "เจริญ", "เติบโต", "พัฒนา", "สำเร็จ", "ยั่งยืน", "เพิ่ม", "มั่นคง",
+      "ปรับปรุง", "ยกระดับ", "เสริมสร้าง", "เข้มแข็ง", "มีประสิทธิภาพ", "คุณภาพ",
+      "นวัตกรรม", "สร้างสรรค์", "โอกาส", "ศักยภาพ", "ความสำเร็จ", "ประโยชน์"
+    ],
+    "english": [
+      "good", "excellent", "growth", "increase", "sustainable", "success", 
+      "strong", "profitable", "improve", "enhance", "boost", "strengthen",
+      "efficient", "quality", "innovation", "creative", "opportunity", 
+      "potential", "benefit", "advantage"
+    ]
+  },
+  "negative": {
+    "thai": [
+      "ลด", "ตก", "ลดลง", "ปัญหา", "ขาดทุน", "วิกฤต", "ความเสี่ยง", 
+      "เสียหาย", "ล้มเหลว", "ข้อจำกัด", "อุปสรรค", "ความไม่แน่นอน",
+      "การสูญเสีย", "ขาดแคลน", "อ่อนแอ", "ไม่มีประสิทธิภาพ"
+    ],
+    "english": [
+      "bad", "poor", "decrease", "loss", "risk", "crisis", "fail", "weak",
+      "damage", "problem", "limitation", "obstacle", "uncertainty", 
+      "shortage", "inefficient", "decline", "reduction"
+    ]
+  },
+  "neutral": {
+    "thai": [
+      "ปกติ", "เท่าเดิม", "คงที่", "เสมอ", "ไม่เปลี่ยนแปลง", "ปานกลาง"
+    ],
+    "english": [
+      "normal", "same", "constant", "unchanged", "moderate", "average"
+    ]
+  }
+}
