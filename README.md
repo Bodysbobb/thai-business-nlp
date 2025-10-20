@@ -211,12 +211,16 @@ If disabled, the package automatically uses lexicon-based and contextual rule se
 
 ## **Dependencies**
 
-* `pandas`, `numpy`, `openpyxl`
-* `pythainlp`, `tqdm`
-* `pymupdf`, `pillow`, `opencv-python`
-* `requests`
-* Optional: `Tesseract OCR`, `Ollama` (for AI models)
+This package builds upon several powerful open-source libraries that handle text extraction, NLP, and data processing:
 
+* **Core dependencies:** `pandas`, `numpy`, `openpyxl`
+* **Natural language processing:** `pythainlp`, `tqdm`
+* **PDF and image processing:** `pymupdf`, `pillow`, `opencv-python`
+* **Networking and API integration:** `requests`
+* **Optional tools:**  
+  * `Tesseract OCR` — for text extraction from scanned PDFs  
+  * `Ollama` — for running local AI models used in contextual sentiment analysis
+  
 ---
 
 ## **Local Testing**
@@ -250,7 +254,7 @@ Purdue University | Research Assistant at GTAP
 
 ---
 
-## **Related Projects**
+## **My Other Projects**
 
 * [HARplus](https://github.com/Bodysbobb/HARplus) – Enhanced R Package for GEMPACK `.har` Files
 * [GTAPViz](https://github.com/Bodysbobb/GTAPViz) – Visualization Toolkit for GTAP Simulation Results
