@@ -78,7 +78,7 @@ thai-business-nlp/
 The program will automatically **scan and analyze every PDF** in the input folder and its subdirectories in a single run:
 
 | Level | Folder Name | Purpose |
-|--------|--------------|----------|
+|--------|--------------|----------------|
 | **1. Year** | Example: `2023/`, `2024/` | Organizes PDFs by publication or reporting year. Used for time-based analysis. |
 | **2. Sector** | Example: `Energy/`, `Finance/`, `Manufacturing/` | Defines the main business sector. Must match the sector names listed in `keywords.xlsx`. |
 | **3. Industry** | Example: `OilGas/`, `Banking/`, `Textile/` | Sub-industry or category under each sector. Allows finer grouping of PDFs. |
@@ -92,7 +92,7 @@ These are the core reference files that control how the program interprets, filt
 You can modify these files to tailor the analysis to your own dataset, sectors, or business context.
 
 | File | Description |
-|------|--------------|
+|------|-------------------------|
 | **keywords.xlsx** | Core mapping file linking **sectors**, **Thai keywords**, **English keywords**, and **ESG categories**. Used to identify predefined terms in each business sector during keyword extraction (see detail below). |
 | **sentiment.json** | Dictionary of **positive**, **negative**, and **neutral** words in both Thai and English. Used for lexicon-based sentiment classification. |
 | **stopwords.json** | Common Thai and English stopwords (e.g., “และ”, “the”, “of”) automatically filtered out from text to prevent false keyword detection. |
@@ -105,7 +105,7 @@ This Excel file defines the **sector-specific keyword mapping** used for keyword
 Each row links an English and Thai keyword to its **ESG pillar** (Environmental, Social, or Governance) and assigns it to a specific **Sector**.
 
 | Column | Description |
-|---------|--------------|
+|---------|------------------------|
 | **English** | The English form of the keyword to be detected in PDF text. |
 | **Thai** | The Thai equivalent of the keyword. Both English and Thai forms are recognized during extraction. |
 | **ESG** | ESG pillar category for the keyword — use `E` (Environmental), `S` (Social), or `G` (Governance). |
@@ -131,7 +131,7 @@ out/
 ### **Explanation of Output Files**
 
 | File | Description | Input-Level Dependency |
-|------|---------------------------|----------------------|
+|------|------------------------------|------------|
 | **keywords_count.csv** | Contains all extracted keywords (predefined and auto-detected) with frequency counts across company reports. | Tagged with **Year**, **Sector**, **Industry**, and **Business**, derived from folder structure (`/in/<Year>/<Sector>/<Industry>/<File.pdf>`). |
 | **sentiment_summary.csv** | Aggregated sentiment ratios (**Positive**, **Negative**, **Neutral**) for each keyword within a report. Useful for comparing sentiment across sectors or years. | Uses the same hierarchy (**Year → Sector → Industry → Business**). |
 | **sentiment_detail.csv** | Sentence-level results showing which sentences triggered each keyword and its sentiment classification. | Directly linked to the same metadata for traceability to each PDF. |
