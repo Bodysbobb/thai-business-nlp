@@ -12,8 +12,9 @@
 
 ## **Overview**
 
-**Thai-Business-NLP** is a Python package for automatic **Thai–English keyword extraction** and **sentiment analysis** from business-related PDF reports.  
-It combines rule-based and AI-assisted natural language processing, designed for researchers, analysts, and corporate users working with bilingual business texts.
+**Thai-Business-NLP** is a Python package for automated **Thai–English keyword extraction** and **sentiment analysis** from business-related PDF reports.  
+The sample dataset is based on annual company reports from the **Stock Exchange of Thailand (SET)** — for example, [PTT’s Annual Report](https://www.set.or.th/en/market/product/stock/quote/PTT/company-profile/information).  
+This toolkit combines rule-based and AI-assisted natural language processing, designed for researchers, analysts, and corporate users working with bilingual Thai–English business documents.
 
 ---
 
@@ -73,8 +74,8 @@ thai-business-nlp/
 
 ## **Input Folder levels (samples/in):**
 
-* All input PDFs **must** be placed under `samples/in/` using this hierarchy:
-
+* All input PDFs **must** be placed under `samples/in/` following this hierarchy.  
+The program will automatically **scan and analyze every PDF** in the input folder and its subdirectories in a single run:
 
 | Level | Folder Name | Purpose |
 |--------|--------------|----------|
@@ -85,7 +86,61 @@ thai-business-nlp/
 
 ---
 
-## **Quick Start**
+## **Mapping Files (data/):**
+
+| File | Description |
+|------|--------------|
+| **keywords.xlsx** | Core mapping file linking **sectors**, **Thai keywords**, **English keywords**, and **ESG categories**. Used to identify predefined terms in each business sector during keyword extraction. |
+| **sentiment.json** | Dictionary of **positive**, **negative**, and **neutral** words in both Thai and English. Used for lexicon-based sentiment classification. |
+| **stopwords.json** | Common Thai and English stopwords (e.g., “และ”, “the”, “of”) automatically filtered out from text to prevent false keyword detection. |
+| **contextual_patterns.json** | Regex-based rules that detect sentiment from contextual expressions (e.g., “ลดต้นทุน” → Positive, “เพิ่มต้นทุน” → Negative). Enhances sentiment accuracy beyond simple word matching. |
+| **excluded_keywords.json** | List of generic or non-informative words (e.g., “บริษัท”, “manager”) that are **explicitly excluded** from keyword extraction to keep results relevant. |
+
+---
+
+## **Output Structure**
+
+After running the pipeline, all results are automatically saved in the **output folder** (`samples/out/`).  
+Each output file represents a different level of processed information derived from the folder hierarchy of your input PDFs (`samples/in/`).
+
+```
+out/
+├─ keywords_count.csv           # Keyword frequency summary
+├─ sentiment_summary.csv        # Aggregate sentiment per keyword
+├─ sentiment_detail.csv         # Sentence-level sentiment breakdown
+└─ keyword_sentences/           # Individual JSON files by document
+```
+
+### **Explanation of Output Files**
+
+| File | Description | Input-Level Dependency |
+|------|--------------|------------------------|
+| **keywords_count.csv** | Contains all extracted keywords (both predefined and automatically detected) with their frequency counts across each company report. | Each record is tagged with **Year**, **Sector**, **Industry**, and **Business**, automatically inferred from the input folder structure (`/in/<Year>/<Sector>/<Industry>/<File.pdf>`). |
+| **sentiment_summary.csv** | Provides aggregated sentiment ratios (**Positive**, **Negative**, **Neutral**) for each keyword within a given company or report. Useful for high-level sentiment comparison across sectors or years. | Uses the same metadata levels (**Year → Sector → Industry → Business**) to group and summarize results. |
+| **sentiment_detail.csv** | Contains sentence-level results, showing which specific sentences triggered each keyword and the corresponding sentiment classification. | Directly linked to the same input metadata, allowing detailed traceability to each PDF’s source. |
+| **keyword_sentences/** | A folder containing individual `.json` files, one per processed company or report. Each JSON includes all detected keywords and the full text snippets (sentences) in which they appear. | The folder hierarchy mirrors the input structure — saved as `/out/keyword_sentences/<Year>/<Sector>/<Industry>/<Business>_sentences.json`. |
+
+---
+
+### **How Input Levels Define Output**
+
+The system **automatically reads the folder names** in your input directory to assign metadata to each PDF:
+
+```
+in/<Year>/<Sector>/<Industry>/<File.pdf>
+```
+
+From this structure:
+- `Year` → used for time-based grouping and analysis.  
+- `Sector` → matched with the `Sector` column in `keywords.xlsx` to load relevant predefined keywords.  
+- `Industry` → used to further categorize results within each sector.  
+- `File.pdf` → defines the **Business** or company name, carried over to all output files.
+
+This ensures that every entry in the output (`csv` and `json`) is properly identified by its **source year**, **sector**, **industry**, and **company**, maintaining a consistent analytical hierarchy between input and output data.
+
+---
+
+## **Quick Run**
 
 Run the full pipeline with a single command:
 
@@ -99,22 +154,12 @@ This command will:
 2. Perform sentiment analysis using both rule-based and AI methods (if enabled).
 3. Export summarized results to the **output folder**.
 
-### Example output structure
-
-```
-out/
-├─ keywords_count.csv           # Keyword frequency summary
-├─ sentiment_summary.csv        # Aggregate sentiment per keyword
-├─ sentiment_detail.csv         # Sentence-level sentiment breakdown
-└─ keyword_sentences/           # Individual JSON files by document
-```
-
 ---
 
 ## **Configuration Guide**
 
-All parameters are stored in `config.py`.
-Users can modify them to control folder locations, processing modes, and model behavior.
+All parameters are defined in `config.py`, which **you are strongly encouraged to download and modify** to suit your setup.  
+Users can adjust these settings to control folder paths, processing behavior, and model configurations.
 
 | Category                | Key Variables                                          | Description                                                               |
 | ----------------------- | ------------------------------------------------------ | ------------------------------------------------------------------------- |
@@ -127,7 +172,7 @@ Users can modify them to control folder locations, processing modes, and model b
 
 ---
 
-## **AI Sentiment Analysis (Optional)**
+## **AI Sentiment Analysis (Optional — but Recommended)**
 
 To enable AI-powered sentiment analysis via **Ollama**:
 
