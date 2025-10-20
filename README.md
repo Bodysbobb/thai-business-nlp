@@ -88,13 +88,30 @@ The program will automatically **scan and analyze every PDF** in the input folde
 
 ## **Mapping Files (data/):**
 
+These are the core reference files that control how the program interprets, filters, and classifies content during keyword extraction and sentiment analysis.  
+You can modify these files to tailor the analysis to your own dataset, sectors, or business context.
+
 | File | Description |
 |------|--------------|
-| **keywords.xlsx** | Core mapping file linking **sectors**, **Thai keywords**, **English keywords**, and **ESG categories**. Used to identify predefined terms in each business sector during keyword extraction. |
+| **keywords.xlsx** | Core mapping file linking **sectors**, **Thai keywords**, **English keywords**, and **ESG categories**. Used to identify predefined terms in each business sector during keyword extraction (see detail below). |
 | **sentiment.json** | Dictionary of **positive**, **negative**, and **neutral** words in both Thai and English. Used for lexicon-based sentiment classification. |
 | **stopwords.json** | Common Thai and English stopwords (e.g., “และ”, “the”, “of”) automatically filtered out from text to prevent false keyword detection. |
 | **contextual_patterns.json** | Regex-based rules that detect sentiment from contextual expressions (e.g., “ลดต้นทุน” → Positive, “เพิ่มต้นทุน” → Negative). Enhances sentiment accuracy beyond simple word matching. |
 | **excluded_keywords.json** | List of generic or non-informative words (e.g., “บริษัท”, “manager”) that are **explicitly excluded** from keyword extraction to keep results relevant. |
+
+### **keywords.xlsx**
+
+This Excel file defines the **sector-specific keyword mapping** used for keyword extraction and sentiment analysis.  
+Each row links an English and Thai keyword to its **ESG pillar** (Environmental, Social, or Governance) and assigns it to a specific **Sector**.
+
+| Column | Description |
+|---------|--------------|
+| **English** | The English form of the keyword to be detected in PDF text. |
+| **Thai** | The Thai equivalent of the keyword. Both English and Thai forms are recognized during extraction. |
+| **ESG** | ESG pillar category for the keyword — use `E` (Environmental), `S` (Social), or `G` (Governance). |
+| **Sector** | The business sector to which this keyword belongs. **This value must exactly match** the *Sector folder name* in the input directory (`samples/in/<Year>/<Sector>/`). Only keywords assigned to that sector will be used when analyzing PDFs within that sector. |
+
+In summary, `keywords.xlsx` determines **which keywords are applied to which sector**, ensuring that the extraction process only uses relevant terms for each industry group.
 
 ---
 
