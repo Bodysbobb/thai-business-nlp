@@ -6,6 +6,7 @@ Version: 0.1.0
 Date: 2025-10-19
 """
 
+from pathlib import Path
 import os
 import sys
 import logging
@@ -13,11 +14,12 @@ from pathlib import Path
 from datetime import datetime
 
 # ===================== PATHS & FILES =====================
-# Input and output folder paths (user should edit these before running)
-INPUT_FOLDER = r"D:\NLP_Sentiment\in"                       # Folder containing PDF files
-OUTPUT_FOLDER = r"D:\NLP_Sentiment\out"                     # Folder for output CSV/JSON/log files
-MAP_FOLDER = r"D:\NLP_Sentiment\map"                        # Folder containing mapping and dictionary files
-JSON_FOLDER = "keyword_sentences"                           # Folder name for saving extracted keyword sentences
+BASE_DIR = Path(__file__).resolve().parent / "data"
+
+INPUT_FOLDER  = os.path.join(BASE_DIR, "samples", "in")     # Folder containing PDF files
+OUTPUT_FOLDER = os.path.join(BASE_DIR, "samples", "out")    # Folder for output CSV/JSON/log files
+MAP_FOLDER    = BASE_DIR                                    # Folder containing mapping and dictionary files
+JSON_FOLDER   = "keyword_sentences"                         # Folder name for saving extracted keyword sentences
 
 # ===================== MAPPING FILE NAMES =====================
 KEYWORD_FILE = os.path.join(MAP_FOLDER, "keywords.xlsx")              # Keyword-sector mapping Excel

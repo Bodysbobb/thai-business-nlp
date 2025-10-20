@@ -32,7 +32,7 @@ import numpy as np
 # -------------------------------------------------------------
 # Import config from package (relative import)
 # -------------------------------------------------------------
-from .config import (
+from thai_business_nlp.config import (
     ensure_directories,
     get_log_file,
     LOG_LEVEL,

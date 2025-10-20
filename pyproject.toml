@@ -25,15 +25,16 @@ classifiers = [
 # Core dependencies
 # ----------------------------------------------------------
 dependencies = [
-  "pandas",
-  "numpy",
-  "pythainlp",
-  "tqdm",
-  "pillow",
-  "pymupdf",          # (fitz)
-  "opencv-python",
-  "requests",
-  "openpyxl"
+    "pandas",
+    "numpy",
+    "pythainlp",
+    "tqdm",
+    "pymupdf",
+    "pillow",
+    "opencv-python",
+    "requests",
+    "openpyxl",
+    "pytesseract"
 ]
 
 # ----------------------------------------------------------

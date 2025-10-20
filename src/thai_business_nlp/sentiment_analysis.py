@@ -23,7 +23,7 @@ from tqdm import tqdm
 # -------------------------------------------------------------
 # Import configuration from the package
 # -------------------------------------------------------------
-from .config import (
+from thai_business_nlp.config import (
     ensure_directories,
     get_log_file,
     LOG_LEVEL,
