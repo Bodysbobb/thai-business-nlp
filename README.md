@@ -1,4 +1,3 @@
-````markdown
 # Thai-Business-NLP: Python Package for Thai–English Keyword & Sentiment Analysis
 
 [![Author](https://img.shields.io/badge/Pattawee.P-blue?label=Author)](https://bodysbobb.github.io/)
