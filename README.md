@@ -131,13 +131,12 @@ out/
 ### **Explanation of Output Files**
 
 | File | Description | Input-Level Dependency |
-|------|--------------|------------------------|
-| **keywords_count.csv** | Contains all extracted keywords (both predefined and automatically detected) with their frequency counts across each company report. | Each record is tagged with **Year**, **Sector**, **Industry**, and **Business**, automatically inferred from the input folder structure (`/in/<Year>/<Sector>/<Industry>/<File.pdf>`). |
-| **sentiment_summary.csv** | Provides aggregated sentiment ratios (**Positive**, **Negative**, **Neutral**) for each keyword within a given company or report. Useful for high-level sentiment comparison across sectors or years. | Uses the same metadata levels (**Year → Sector → Industry → Business**) to group and summarize results. |
-| **sentiment_detail.csv** | Contains sentence-level results, showing which specific sentences triggered each keyword and the corresponding sentiment classification. | Directly linked to the same input metadata, allowing detailed traceability to each PDF’s source. |
-| **keyword_sentences/** | A folder containing individual `.json` files, one per processed company or report. Each JSON includes all detected keywords and the full text snippets (sentences) in which they appear. | The folder hierarchy mirrors the input structure — saved as `/out/keyword_sentences/<Year>/<Sector>/<Industry>/<Business>_sentences.json`. |
+|------|---------------------------|----------------------|
+| **keywords_count.csv** | Contains all extracted keywords (predefined and auto-detected) with frequency counts across company reports. | Tagged with **Year**, **Sector**, **Industry**, and **Business**, derived from folder structure (`/in/<Year>/<Sector>/<Industry>/<File.pdf>`). |
+| **sentiment_summary.csv** | Aggregated sentiment ratios (**Positive**, **Negative**, **Neutral**) for each keyword within a report. Useful for comparing sentiment across sectors or years. | Uses the same hierarchy (**Year → Sector → Industry → Business**). |
+| **sentiment_detail.csv** | Sentence-level results showing which sentences triggered each keyword and its sentiment classification. | Directly linked to the same metadata for traceability to each PDF. |
+| **keyword_sentences/** | Folder of individual `.json` files (one per company/report) containing all detected keywords and related text snippets. | Mirrors input structure: `/out/keyword_sentences/<Year>/<Sector>/<Industry>/<Business>_sentences.json`. |
 
----
 
 ### **How Input Levels Define Output**
 
