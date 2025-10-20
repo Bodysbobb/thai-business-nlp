@@ -1,6 +1,6 @@
 # Thai-Business-NLP: Python Package for Thai–English Keyword & Sentiment Analysis
 
-[![Author](https://img.shields.io/badge/Pattawee.P-blue?label=Author)](https://bodysbobb.github.io/)
+[![Author](https://img.shields.io/badge/Pattawee.P-blue?label=Author)](https://www.pattawee-pp.com/)
 ![Last Updated](https://img.shields.io/github/last-commit/Bodysbobb/thai-business-nlp?label=Last%20Updated&color=blue)
 [![Stars](https://img.shields.io/github/stars/Bodysbobb/thai-business-nlp?style=social)](https://github.com/Bodysbobb/thai-business-nlp)
 
