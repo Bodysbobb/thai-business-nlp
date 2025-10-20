@@ -72,14 +72,17 @@ thai-business-nlp/
       │             └── out/   ← Output CSV and JSON files will be generated here
 ```
 
-**Folder levels explained:**
+## **Input Folder levels (samples/in):**
 
-| Folder Level         | Path Example                              | Purpose                                                                                               |
-| -------------------- | ----------------------------------------- | ----------------------------------------------------------------------------------------------------- |
-| **Level 1**          | `src/thai_business_nlp/data/`             | Stores all mapping and dictionary files (e.g., keywords.xlsx, sentiment.json).                        |
-| **Level 2**          | `src/thai_business_nlp/data/samples/`     | Contains subfolders for input and output processing.                                                  |
-| **Level 3 (Input)**  | `src/thai_business_nlp/data/samples/in/`  | Place PDF files here. Each PDF will be processed for keyword extraction and sentiment classification. |
-| **Level 3 (Output)** | `src/thai_business_nlp/data/samples/out/` | The program automatically saves output results here (CSV and JSON).                                   |
+* All input PDFs **must** be placed under `samples/in/` using this hierarchy:
+
+
+| Level | Folder Name | Purpose |
+|--------|--------------|----------|
+| **1. Year** | Example: `2023/`, `2024/` | Organizes PDFs by publication or reporting year. Used for time-based analysis. |
+| **2. Sector** | Example: `Energy/`, `Finance/`, `Manufacturing/` | Defines the main business sector. Must match the sector names listed in `keywords.xlsx`. |
+| **3. Industry** | Example: `OilGas/`, `Banking/`, `Textile/` | Sub-industry or category under each sector. Allows finer grouping of PDFs. |
+| **File** | Example: `PTT.pdf`, `SCB.pdf` | Each file represents one company or report to be analyzed. |
 
 ---
 
